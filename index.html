@@ -5,228 +5,174 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kuna Walk-Through Haunted House • Oct 31, 2025</title>
 
-  <!-- Theme fonts -->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
 
-  <!-- SEO basics -->
-  <meta name="description" content="Kuna Walk-Through Haunted House. Free entry. Live actors. Scares. Friday Oct 31, 2025. 7:00 PM to 9:30 PM. 2185 N. Destiny Way, Kuna. Optional $3 Fast Pass benefits Wounded Warrior Project." />
+  <!-- SEO -->
+  <meta name="description" content="Free entry haunted walk-through with live actors and jump scares. Friday Oct 31, 2025, 7:00 PM to 9:30 PM. 2185 N. Destiny Way, Kuna. Optional $3 Fast Pass to Wounded Warrior Project." />
   <meta name="theme-color" content="#0e0b10" />
+  <meta property="og:title" content="Kuna Walk-Through Haunted House" />
+  <meta property="og:description" content="Free entry. Live actors. Big scares. Oct 31, 7:00 PM to 9:30 PM." />
+  <meta property="og:type" content="event" />
+
+  <!-- Preload key images if you have them -->
+  <link rel="preload" as="image" href="Haunted House 01.jpg" imagesrcset="Haunted House 01.jpg" imagesizes="100vw">
 
   <style>
     :root{
-      --ink:#e8e6eb;
+      --ink:#f2f2f3;
       --muted:#b8b5bf;
       --bg:#0e0b10;
-      --bg-soft:#15121a;
-      --blood:#8b0000;
+      --overlay:rgba(0,0,0,.65);
+      --card:#241f2d;
+      --border:#362f42;
       --ember:#ff4500;
+      --blood:#8b0000;
       --lime:#93ffa6;
-      --card:#1b1722;
-      --border:#2a2433;
+      --shadow:0 15px 45px rgba(0,0,0,.45);
       --focus:#ffd166;
-      --ok:#2ecc71;
-      --warn:#ff9f1a;
-      --danger:#ff4d4f;
-      --shadow:0 20px 60px rgba(0,0,0,.45);
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family:'Lato',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink);
+      font-family:'Lato',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background: var(--bg) url('Haunted House 01.jpg') center/cover fixed no-repeat;
       line-height:1.6;
       overflow-x:hidden;
+      font-size: 1.075rem;
     }
+    /* Readability overlay and vignette */
+    .veil::before,.veil::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0}
+    .veil::before{background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.75))}
+    .veil::after{background: radial-gradient(70% 50% at 50% 15%, transparent, rgba(0,0,0,.55) 70%)}
 
-    /* Subtle fog and vignette overlay for readability */
-    .veil::before, .veil::after{
-      content:"";
-      position:fixed; inset:0; pointer-events:none;
-      z-index:0;
-    }
-    .veil::before{
-      background: radial-gradient(65% 50% at 50% 20%, rgba(0,0,0,.15), rgba(0,0,0,.65) 70%);
-      mix-blend-mode:multiply;
-    }
-    .veil::after{
-      background:
-        radial-gradient(1200px 400px at 50% -10%, rgba(255,255,255,.06), rgba(255,255,255,0) 60%),
-        radial-gradient(1600px 600px at 50% 120%, rgba(0,0,0,.45), rgba(0,0,0,0) 60%);
-      opacity:.9;
-    }
-
-    a{color:var(--lime); text-decoration:none}
+    a{color:var(--lime);text-decoration:none}
     a:hover{text-decoration:underline}
-    img{max-width:100%; height:auto; display:block}
+    img{max-width:100%;height:auto;display:block}
+    .wrap{position:relative;z-index:1}
 
-    .wrap{position:relative; z-index:1}
-
-    header{
-      padding:48px 20px 24px;
-      text-align:center;
-    }
+    header{padding:40px 16px 16px;text-align:center}
     .brand{
-      font-family:'Creepster', cursive;
-      font-size: clamp(40px, 6vw, 84px);
-      letter-spacing:1px;
-      color: var(--ember);
-      text-shadow: 0 6px 20px rgba(255,69,0,.25), 2px 2px 0 #000;
-      margin:0 0 10px;
+      font-family:'Creepster',cursive;
+      font-size:clamp(40px,6vw,84px);
+      color:var(--ember);
+      text-shadow:0 6px 20px rgba(255,69,0,.3),2px 2px 0 #000;
+      margin:0;
     }
-    .sub{
-      margin:0 auto;
-      color:var(--muted);
-      max-width:800px;
-      font-size:clamp(16px, 2.6vw, 18px);
+    .sub{margin:6px auto 0;color:var(--muted);max-width:800px}
+
+    /* Countdown */
+    .countdown{
+      margin:14px auto 0;
+      font-weight:700;
+      letter-spacing:.5px;
+      color:#ffd6b3;
     }
 
-    /* Hero facts bar */
+    /* Facts bar */
     .facts{
-      margin:22px auto 10px;
+      margin:18px auto 8px;
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
       gap:12px;
       max-width:1100px;
       padding:0 12px;
     }
     .fact{
-      background: linear-gradient(180deg, rgba(27,23,34,.9), rgba(21,18,26,.9));
+      background:linear-gradient(180deg, rgba(36,31,45,.92), rgba(27,22,36,.92));
       border:1px solid var(--border);
       border-radius:14px;
       padding:14px 16px;
-      display:flex; align-items:center; gap:12px;
+      display:flex;gap:12px;align-items:center;
       box-shadow:var(--shadow);
     }
     .fact svg{flex:0 0 28px}
-    .fact strong{display:block; font-size:15px}
-    .fact span{color:var(--muted); font-size:14px}
+    .fact strong{display:block;font-size:15px}
+    .fact span{color:var(--muted);font-size:14px}
 
     /* CTAs */
     .cta-row{
-      display:flex; justify-content:center; gap:14px; flex-wrap:wrap;
-      margin:12px auto 0;
-      padding:0 16px 8px;
+      display:flex;justify-content:center;gap:12px;flex-wrap:wrap;
+      margin:10px auto 0;padding:0 16px 8px;
     }
     .btn{
-      appearance:none; border:0; cursor:pointer;
-      padding:12px 18px; border-radius:12px; font-weight:700;
-      font-size:16px;
-      transition:.2s transform ease, .2s box-shadow ease, .2s background ease;
+      appearance:none;border:0;cursor:pointer;
+      padding:12px 18px;border-radius:12px;font-weight:700;font-size:16px;
+      transition:.2s transform ease,.2s box-shadow ease,.2s background ease;
       box-shadow:0 10px 30px rgba(0,0,0,.35);
-      display:inline-flex; align-items:center; gap:10px;
-      text-decoration:none;
+      display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#fff;
     }
     .btn:hover{transform:translateY(-1px)}
-    .btn:focus-visible{outline:3px solid var(--focus); outline-offset:3px}
-    .btn-primary{background:linear-gradient(180deg, var(--ember), #b83300); color:#fff}
-    .btn-ghost{background:#00000066; color:#fff; border:1px solid #ffffff22}
-    .btn-fast{background:linear-gradient(180deg, var(--blood), #5c0000); color:#fff}
+    .btn:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+    .btn-primary{background:linear-gradient(180deg,var(--ember),#b83300)}
+    .btn-fast{background:linear-gradient(180deg,var(--blood),#5c0000)}
+    .btn-ghost{background:#0006;border:1px solid #fff2}
 
-    main{padding:18px 16px 56px}
-
+    main{padding:18px 12px 56px}
     section{
-      background: rgba(21,18,26,.92);
+      background:rgba(27,23,34,.95);
       border:1px solid var(--border);
       border-radius:16px;
       box-shadow:var(--shadow);
-      max-width:1100px; margin:18px auto; padding:22px;
+      max-width:1100px;margin:18px auto;padding:22px;
     }
     section h2{
-      font-family:'Creepster', cursive;
-      color:var(--ember);
-      font-size: clamp(28px, 4.5vw, 40px);
-      letter-spacing:.5px;
-      margin:2px 0 10px;
+      font-family:'Creepster',cursive;color:var(--ember);
+      font-size:clamp(28px,4.5vw,40px);letter-spacing:.5px;margin:2px 0 10px;
       text-shadow:2px 2px 0 #000;
     }
+    section p,section li{color:var(--ink)}
 
-    .grid{
-      display:grid; gap:16px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
-    .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:12px;
-      padding:16px;
-    }
-    .card h3{
-      margin:0 0 6px; font-size:18px; color:#ffd6b3;
-    }
-    .card p{margin:0; color:var(--ink)}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+    .card h3{margin:0 0 6px;font-size:18px;color:#ffd6b3}
+
+    /* Features */
+    .ticks{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin:8px 0 0}
+    .tick{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px}
+    .tick svg{flex:0 0 22px}
 
     /* Warning */
-    .warning{
-      border:2px solid var(--blood);
-      background:linear-gradient(180deg, rgba(139,0,0,.25), rgba(0,0,0,.35));
-      box-shadow:0 0 24px rgba(255,69,0,.25);
-    }
+    .warning{border:2px solid var(--blood);background:linear-gradient(180deg, rgba(139,0,0,.25), rgba(0,0,0,.35));box-shadow:0 0 24px rgba(255,69,0,.25)}
     .warning h2{color:#ff6b6b}
-    .warning ul{margin:8px 0 0; padding-left:18px}
+    .warning ul{margin:8px 0 0;padding-left:18px}
     .warning li{margin:6px 0}
 
-    /* Feature list */
-    .ticks{
-      display:grid; gap:10px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      margin:8px 0 0;
-    }
-    .tick{
-      display:flex; gap:10px; align-items:flex-start;
-      background:var(--card); border:1px solid var(--border);
-      border-radius:10px; padding:12px;
-    }
-    .tick svg{flex:0 0 22px}
-    .tick b{display:block}
-
     /* Gallery */
-    .gallery{
-      display:grid; gap:12px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
-    .shot{
-      border-radius:12px; overflow:hidden;
-      border:1px solid var(--border);
-      transform:translateZ(0);
-    }
-    .shot img{width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .3s ease}
+    .gallery{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .shot{border-radius:12px;overflow:hidden;border:1px solid var(--border);transform:translateZ(0)}
+    .shot img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .3s ease}
     .shot:hover img{transform:scale(1.03)}
 
     /* Drip divider */
     .drip{
-      height:16px; margin:6px auto 16px; max-width:1100px;
+      height:16px;margin:6px auto 16px;max-width:1100px;
       background:
         radial-gradient(circle at 10% 0, rgba(255,69,0,.8) 12px, transparent 13px) 0 0/60px 16px repeat-x,
         radial-gradient(circle at 40% 0, rgba(139,0,0,.8) 10px, transparent 11px) 30px 0/60px 16px repeat-x;
       filter:drop-shadow(0 6px 6px rgba(0,0,0,.4));
     }
 
-    /* Flying bats for fun */
-    .bat{position:fixed; top:12vh; width:22px; height:10px; background:#000; clip-path:polygon(0 100%,20% 0,40% 100%,60% 0,80% 100%,100% 0,100% 100%,0 100%); opacity:.4; animation:flap 7s linear infinite}
-    .bat.b2{top:20vh; left:15vw; animation-duration:9s; opacity:.35}
-    .bat.b3{top:28vh; left:70vw; animation-duration:11s; opacity:.3}
-    @keyframes flap{
-      0%{transform:translateX(-10vw) translateY(0)}
-      50%{transform:translateX(55vw) translateY(-12px)}
-      100%{transform:translateX(120vw) translateY(0)}
+    /* Subtle bats with motion preference */
+    .bat{position:fixed;top:12vh;width:22px;height:10px;background:#000;clip-path:polygon(0 100%,20% 0,40% 100%,60% 0,80% 100%,100% 0,100% 100%,0 100%);opacity:.4;animation:flap 7s linear infinite}
+    .bat.b2{top:20vh;left:15vw;animation-duration:9s;opacity:.35}
+    .bat.b3{top:28vh;left:70vw;animation-duration:11s;opacity:.3}
+    @keyframes flap{0%{transform:translateX(-10vw)}50%{transform:translateX(55vw)}100%{transform:translateX(120vw)}}
+    @media (prefers-reduced-motion: reduce){
+      .bat{display:none}
+      .btn:hover{transform:none}
+      .shot img{transition:none}
     }
 
-    /* Footer */
-    footer{color:var(--muted); text-align:center; padding:22px}
-
-    /* Accessibility helpers */
-    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
-
-    /* Small tweaks */
-    @media (min-width:900px){
-      .split-hero{display:grid; grid-template-columns: 1.2fr .8fr; gap:16px; align-items:center}
-    }
+    footer{color:var(--muted);text-align:center;padding:22px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media (min-width:900px){.split-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:center}}
   </style>
 
-  <!-- JSON-LD Event schema for better discovery -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -236,34 +182,18 @@
     "endDate":"2025-10-31T21:30:00-06:00",
     "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
     "eventStatus":"https://schema.org/EventScheduled",
-    "location":{
-      "@type":"Place",
-      "name":"Kuna Walk-Through Haunted House",
-      "address":{
-        "@type":"PostalAddress",
-        "streetAddress":"2185 N. Destiny Way",
-        "addressLocality":"Kuna",
-        "addressRegion":"ID",
-        "postalCode":"83634",
-        "addressCountry":"US"
-      }
-    },
-    "image":["IMG_0977.jpg","Great scare copy 2.jpeg","Another bloody bride.jpeg","2012 actors.jpg","DSC_0703.jpg"],
+    "location":{"@type":"Place","name":"Kuna Walk-Through Haunted House","address":{"@type":"PostalAddress","streetAddress":"2185 N. Destiny Way","addressLocality":"Kuna","addressRegion":"ID","postalCode":"83634","addressCountry":"US"}},
+    "image":["IMG_0977.jpg","Great scare copy 2.jpeg","Another bloody bride.jpeg","2012 actors.jpg","DSC_0703.jpg","2011 actors copy.jpg","DSC_0702.jpg","IMG_0996.jpg"],
     "description":"Free entry haunted walk-through with live actors, themed rooms, and jump scares. Optional $3 Fast Pass benefits Wounded Warrior Project.",
     "isAccessibleForFree": true,
-    "offers":{
-      "@type":"Offer",
-      "price":"0",
-      "priceCurrency":"USD",
-      "availability":"https://schema.org/InStock"
-    },
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"},
     "organizer":{"@type":"Organization","name":"Kuna Walk-Through Haunted House"}
   }
   </script>
 </head>
 
 <body class="veil">
-  <!-- Fun background bats -->
+  <!-- Decorative -->
   <div class="bat" aria-hidden="true"></div>
   <div class="bat b2" aria-hidden="true"></div>
   <div class="bat b3" aria-hidden="true"></div>
@@ -272,38 +202,33 @@
     <header>
       <h1 class="brand">Kuna Walk-Through Haunted House</h1>
       <p class="sub">Free entry. Live actors. Big scares. Family photo spots outside the exit.</p>
+      <p class="countdown" id="countdown" aria-live="polite">Counting down to Oct 31 at 7:00 PM…</p>
 
       <div class="facts" role="list">
         <div class="fact" role="listitem">
-          <!-- calendar -->
           <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffd6b3" d="M7 2h2v2h6V2h2v2h3v18H4V4h3zm12 6H5v12h14V8zM7 12h5v5H7v-5z"/></svg>
           <div><strong>Friday Oct 31, 2025</strong><span>7:00 PM to 9:30 PM</span></div>
         </div>
         <a class="fact" role="listitem" href="https://maps.google.com/?q=2185+N.+Destiny+Way,+Kuna,+ID+83634" target="_blank" rel="noopener">
-          <!-- pin -->
           <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffd6b3" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
           <div><strong>2185 N. Destiny Way</strong><span>Kuna, Idaho • Open lot parking</span></div>
         </a>
         <div class="fact" role="listitem">
-          <!-- ticket -->
           <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffd6b3" d="M2 10h3a2 2 0 1 1 0 4H2v4h20v-4h-3a2 2 0 1 1 0-4h3V6H2v4z"/></svg>
-          <div><strong>Admission</strong><span>Free • Optional $3 Fast Pass</span></div>
+          <div><strong>Admission</strong><span>Free • $3 Fast Pass optional</span></div>
         </div>
-        <div class="fact" role="listitem">
-          <!-- heart -->
-          <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffd6b3" d="M12 21s-7.5-4.35-9.5-8.5C1 8.5 3.5 6 6.5 6 8.46 6 10 7 12 9c2-2 3.54-3 5.5-3C20.5 6 23 8.5 21.5 12.5 19.5 16.65 12 21 12 21z"/></svg>
-          <div><strong>Why visit</strong><span>Big production. Live scares. Great cause.</span></div>
-        </div>
+        <button class="fact btn-ghost" id="shareBtn" type="button" aria-label="Share event">
+          <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffd6b3" d="M18 8a3 3 0 1 0-2.83-4H15v9.17l-2.59-2.58L11 11l5 5 5-5-1.41-1.41L18 13.17V8zM4 6h6V4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6v-2H4V6z"/></svg>
+          <div><strong>Share</strong><span>Invite friends</span></div>
+        </button>
       </div>
 
       <div class="cta-row">
         <a class="btn btn-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Kuna%20Walk-Through%20Haunted%20House&dates=20251031T190000/20251031T213000&details=Free%20entry.%20Live%20actors.%20Fast%20Pass%20benefits%20Wounded%20Warrior%20Project.&location=2185%20N.%20Destiny%20Way%2C%20Kuna%2C%20ID%2083634" target="_blank" rel="noopener" aria-label="Add to Google Calendar">
-          <!-- plus -->
           <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></svg>
           Add to Calendar
         </a>
         <a class="btn btn-fast" href="#fast-pass">
-          <!-- bolt -->
           <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M11 21h-1l1-7H7l7-11h1l-1 7h4z"/></svg>
           Fast Pass info
         </a>
@@ -314,10 +239,9 @@
     <div class="drip" aria-hidden="true"></div>
 
     <main>
-      <!-- What to expect -->
       <section id="expect">
         <h2>What to expect</h2>
-        <p>It is a full walk-through haunt with actors, scenes, sound, and jump scares. The outside exit area is family friendly for photos.</p>
+        <p>Full walk-through haunt with actors, scenes, sound, effects, and jump scares. The exit area is family friendly for photos.</p>
         <div class="ticks">
           <div class="tick">
             <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#7cf3a1" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
@@ -338,19 +262,18 @@
         </div>
       </section>
 
-      <!-- Plan your visit -->
       <section id="plan">
         <h2>Plan your visit</h2>
         <div class="grid">
           <div class="card">
             <h3>Address</h3>
-            <p>2185 N. Destiny Way, Kuna<br />
+            <p>2185 N. Destiny Way, Kuna<br>
               <a href="https://maps.google.com/?q=2185+N.+Destiny+Way,+Kuna,+ID+83634" target="_blank" rel="noopener">Open in Maps</a>
             </p>
           </div>
           <div class="card">
             <h3>Date and time</h3>
-            <p>Friday Oct 31, 2025<br />7:00 PM to 9:30 PM</p>
+            <p>Friday Oct 31, 2025<br>7:00 PM to 9:30 PM</p>
           </div>
           <div class="card">
             <h3>Admission</h3>
@@ -363,13 +286,11 @@
         </div>
       </section>
 
-      <!-- Fast Pass -->
       <section id="fast-pass" class="warning" aria-labelledby="fastpass-title">
         <h2 id="fastpass-title">Fast Pass line</h2>
         <p><strong>$3 per person</strong> goes to The Wounded Warrior Project. Present your Fast Pass at the entry host and use the dedicated line.</p>
       </section>
 
-      <!-- Safety and rules -->
       <section class="warning" aria-labelledby="warning-title">
         <h2 id="warning-title">Safety notice</h2>
         <ul>
@@ -380,22 +301,59 @@
         </ul>
       </section>
 
-      <!-- Photos -->
       <section id="photos" aria-labelledby="photos-title">
         <h2 id="photos-title">Photos from previous years</h2>
         <div class="gallery">
-          <figure class="shot"><img loading="lazy" src="IMG_0977.jpg" alt="Guests lined up at the haunted house entrance" /></figure>
-          <figure class="shot"><img loading="lazy" src="Great scare copy 2.jpeg" alt="Actor delivering a big scare" /></figure>
-          <figure class="shot"><img loading="lazy" src="Another bloody bride.jpeg" alt="Bloody bride character in costume" /></figure>
-          <figure class="shot"><img loading="lazy" src="2012 actors.jpg" alt="Group of costumed haunted house actors" /></figure>
-          <figure class="shot"><img loading="lazy" src="DSC_0703.jpg" alt="Crowd waiting near the queue" /></figure>
+          <figure class="shot"><img loading="lazy" src="IMG_0977.jpg" alt="Guests lined up at the haunted house entrance"></figure>
+          <figure class="shot"><img loading="lazy" src="Great scare copy 2.jpeg" alt="Actor delivering a big scare"></figure>
+          <figure class="shot"><img loading="lazy" src="Another bloody bride.jpeg" alt="Bloody bride character in costume"></figure>
+          <figure class="shot"><img loading="lazy" src="2012 actors.jpg" alt="Group of costumed haunted house actors "></figure>
+          <figure class="shot"><img loading="lazy" src="DSC_0703.jpg" alt="Crowd waiting near the queue"></figure>
+          <figure class="shot"><img loading="lazy" src="2011 actors copy.jpg" alt="Two actors in menacing costumes"></figure>
+          <figure class="shot"><img loading="lazy" src="DSC_0702.jpg" alt="Clown character with prop knife"></figure>
+          <figure class="shot"><img loading="lazy" src="IMG_0996.jpg" alt="Skeletal character inside the haunt"></figure>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>&copy; 2025 Kuna Walk-Through Haunted House</p>
+      <p>© 2025 Kuna Walk-Through Haunted House</p>
     </footer>
   </div>
+
+  <script>
+    // Countdown to Oct 31, 2025 19:00 America/Boise
+    (function(){
+      const el = document.getElementById('countdown');
+      if(!el) return;
+      const target = new Date('2025-10-31T19:00:00-06:00').getTime();
+      function tick(){
+        const now = Date.now();
+        const diff = Math.max(0, target - now);
+        const d = Math.floor(diff / (1000*60*60*24));
+        const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+        const m = Math.floor((diff%(1000*60*60))/(1000*60));
+        const s = Math.floor((diff%(1000*60))/1000);
+        el.textContent = diff===0 ? 'It is showtime' : `Starts in ${d}d ${h}h ${m}m ${s}s`;
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    // Web Share API for quick invites
+    (function(){
+      const btn = document.getElementById('shareBtn');
+      if(!btn || !navigator.share) return;
+      btn.addEventListener('click', async () => {
+        try{
+          await navigator.share({
+            title:'Kuna Walk-Through Haunted House',
+            text:'Free entry. Live actors. Oct 31, 7:00 PM to 9:30 PM. Join me.',
+            url: location.href
+          });
+        }catch(e){}
+      });
+    })();
+  </script>
 </body>
 </html>
