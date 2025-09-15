@@ -12,6 +12,7 @@
             --haunted-orange: #ff4500;
             --haunted-black: #1a1a1a;
             --haunted-gray: #ccc;
+            --light-gray: #f5f5f5;
         }
 
         body {
@@ -67,12 +68,15 @@
             margin-top: 0;
         }
 
+        .warning-sign p, .warning-sign ul {
+            font-family: 'Lato', sans-serif;
+            font-weight: bold;
+        }
+        
         .warning-sign ul {
             list-style-type: none;
             padding: 0;
             margin: 10px 0 0;
-            font-family: 'Lato', sans-serif;
-            font-weight: bold;
         }
 
         .warning-sign li {
@@ -81,8 +85,10 @@
 
         section {
             padding: 40px 20px;
-            background-color: rgba(26, 26, 26, 0.8);
+            background-color: rgba(26, 26, 26, 0.85); /* Slightly less transparent */
             margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            border-radius: 10px;
         }
         
         section h2 {
@@ -111,7 +117,7 @@
             color: var(--haunted-red);
             font-size: 1.5em;
         }
-
+        
         .image-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -196,11 +202,10 @@
             </section>
             
             <section>
-                <h2>The Experience</h2>
-                <p>The **KUNA WALK-THROUGH HAUNTED HOUSE** is a highly immersive haunted house experience.</p>
-                <p>Live actors will scare you throughout the various mazes, the slaughter house room, and the electrocution scene.</p>
-                <p>YES -- clowns will be present.</p>
-                <p>While scaring our guests is our intent our mission is to create a fun and enjoyable experience. We guarantee that you will run for your life at the conclusion of this haunted house. Be prepared!</p>
+                <h2>Dare to Enter Our Nightmare</h2>
+                <p>Welcome, brave souls, to the **KUNA WALK-THROUGH HAUNTED HOUSE**! This isn't just a decorated yard—it's a truly immersive haunted experience designed to thrill and terrify. Step inside if you dare and lose yourself in a series of shocking scenes and frightening mazes.</p>
+                <p>Prepare to face your deepest fears as **live actors** lurk in the shadows, ready to scare you at every turn. Navigate our twisted corridors, try to escape the chilling **slaughter house room**, and witness a horrifying **electrocution scene**. And yes, for those who truly love to be scared, **clowns will be present** to deliver a special brand of terror.</p>
+                <p>While our mission is to scare you, our ultimate goal is to create a fun and unforgettable experience for all. Just know that when you think it's over, we guarantee that you will be running for your life at the conclusion of this haunted house. **Be prepared!**</p>
             </section>
 
             <div class="fast-pass">
@@ -214,6 +219,8 @@
                     <img src="IMG_0977.jpg" alt="Crowd at the haunted house entrance">
                     <img src="Great scare copy 2.jpeg" alt="Spooky girl with long dark hair">
                     <img src="Another bloody bride.jpeg" alt="Bloody bride holding a knife">
+                    <img src="2012 actors.jpg" alt="A group of haunted house actors">
+                    <img src="DSC_0703.jpg" alt="A group of people waiting in line">
                 </div>
             </section>
         </main>
